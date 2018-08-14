@@ -7,25 +7,24 @@
 @section scripts
 {
     <script type="text/javascript">
-        //When the document loads, run this
         $(document).ready(function () {
             console.log("hewwo");
-            //set up validation on my numberForm
-            $("#RegistrationForm").validate({
-                wrapper: "div",
+            
+            $("RegistrationForm").validate({
+                wrapper: 'div',
                 rules: {
                     //requirements for each named element
                     'firstNameInput': {
-                        required: true, //required
-                        minLength: 3 // cannot be negative
+                        required: true,
+                        minLength: 3 
                     },
                     'lastNameInput': {
-                        required: true, //required
-                        minLength: 2 // cannot be negative
+                        required: true, 
+                        minLength: 2 
                     },
                     'emailInput': {
                         required: true,
-                        email: true //must be at least 3 characters
+                        email: true 
                     },
                     'telephoneInput': {
                         required: true,
@@ -36,7 +35,7 @@
                     //configure messages when error condition tripped.
                     'firstNameInput': {
                         required: "First name is required",
-                        minLength: "Do you have a longer version of your name"
+                        minLength: "Do you have a longer version of your name?"
                     },
                     'lastNameInput': {
                         required: "Last name is required",
@@ -61,12 +60,12 @@
 
 
 <p>"Quick, input your data, it should be safe here. Promise"</p>
+<div>
 <form id="RegistrationForm" action="WelcomeUser" method="get">
-    <div class="row">
-        <div class="col-md-12">First Name:<input required id="firstName" type="text" name="firstNameInput"></div>
-    </div>
-        Last Name:<input required id="lastName" type="text" name="lastNameInput"><br />
-        E-mail Address:<input required id="emailAddress" type="email" name="emailInput"><br />
-        Phone Number:<input required id="telephoneNumber" type="tel" name="telephoneInput"><br />
+        First Name:<input required type="text" name="firstNameInput"/>
+        Last Name:<input required type="text" name="lastNameInput"/>
+        E-mail Address:<input required  type="email" name="emailInput"/>
+        Phone Number:<input required  type="tel" name="telephoneInput"/>
         <input id="submit" type="submit" value="Submit" />
 </form>
+    </div>
