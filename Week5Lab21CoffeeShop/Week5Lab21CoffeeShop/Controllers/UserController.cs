@@ -12,14 +12,14 @@ namespace Week5Lab21CoffeeShop.Controllers
         
 
         // GET: Users/Create
-        public ActionResult Create()
+        public ActionResult CreateUser()
         {
             return View();
         }
 
         // POST: Users/Create
         [HttpPost]
-        public ActionResult Create(User collection)
+        public ActionResult CreateUser(User collection)
         {
             try
             {

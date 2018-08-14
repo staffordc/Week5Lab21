@@ -33,7 +33,7 @@ namespace Week5Lab21CoffeeShop.Controllers
             
             return View();
         }
-        public ActionResult WelcomeUser(string firstNameInput, string lastNameInput, string emailInput, string telephoneInput)
+        public ActionResult WelcomeUser()
         {
             ViewBag.Message = $"what up {firstNameInput}";
             return View();

@@ -1,7 +1,7 @@
 ﻿@model Week5Lab21CoffeeShop.Models.User
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CreateUser";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var listItems = new List<SelectListItem>()
     {
@@ -98,5 +98,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "WelcomeUser","Home")
+    @Html.ActionLink("Back to List", "Index","Home")
 </div>

@@ -12,7 +12,7 @@ namespace Week5Lab21CoffeeShop.Validators
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var email = value.ToString();
-            var emailRegex = new Regex("\\w+@\\w+.\\w");
+            var emailRegex = new Regex("\\w+@\\w+.\\w+");
 
             var isValidEmail = emailRegex.IsMatch(email);
             if (isValidEmail)

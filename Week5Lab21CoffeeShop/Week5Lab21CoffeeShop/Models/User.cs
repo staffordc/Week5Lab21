@@ -12,20 +12,20 @@ namespace Week5Lab21CoffeeShop.Models
 
         [MinLength(2, ErrorMessage ="Do you have a longer version of that name?")]
         [Required]
-        [MaxLength(50, ErrorMessage ="time to lawyer up against parents")]
+        [MaxLength(50, ErrorMessage ="time to lawyer up against ur parents")]
         [Display(Name = ("FirstName"))]
         [RegularExpression("\\D+", ErrorMessage = "No numblos plz")]
         public string FirstName { get; set; }
 
-        [MinLength(2, ErrorMessage = "No initals plz?")]
+        [MinLength(2, ErrorMessage = "No initals plz")]
         [Required]
-        [MaxLength(50, ErrorMessage ="time to lawyer up against parents")]
+        [MaxLength(50, ErrorMessage ="time to lawyer up against ur parents")]
         [Display(Name = ("LastName"))]
         [RegularExpression("\\D+",ErrorMessage = "No numblos plz")]
         public string LastName { get; set; }
 
         [Required]
-        [EmailAddress(ErrorMessage = "please give me a different one")]
+        [EmailAddress(ErrorMessage = "please try again")]
         public string Email { get; set; }
 
         [Required]
