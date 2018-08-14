@@ -25,7 +25,7 @@ namespace Week5Lab21CoffeeShop.Controllers
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
+                return RedirectToAction("WelcomeUser","Home");
             }
             catch
             {
