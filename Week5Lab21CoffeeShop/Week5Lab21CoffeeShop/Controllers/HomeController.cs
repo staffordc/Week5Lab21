@@ -28,10 +28,12 @@ namespace Week5Lab21CoffeeShop.Controllers
         }
         public ActionResult UserRegistration()
         {
-            ViewBag.Message = "butz";
+            ViewBag.Message = "Welcome to the app";
+
+            
             return View();
         }
-        public ActionResult WelcomeUser()
+        public ActionResult WelcomeUser(string firstNameInput, string lastNameInput, string emailInput, string telephoneInput)
         {
             ViewBag.Message = $"what up {firstNameInput}";
             return View();

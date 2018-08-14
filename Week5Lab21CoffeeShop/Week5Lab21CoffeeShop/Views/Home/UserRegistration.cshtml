@@ -4,12 +4,69 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>"Quick, input your data, it should be safe here. Promise"</p>
-<form action="Home/UserRegistration" method="get">
-    First Name:<input type="text" name="firstNameInput"><br/>
-    Last Name:<input type="text" name="lastNameInput"><br/>
-    E-mail Address:<input type="email" name="emailInput"><br/>
-    Phone Number:<input type="tel" name="telephoneInput"><br/>
-    <input type="button" value="Submit"/>
-</form>
+@section scripts
+{
+    <script type="text/javascript">
+        //When the document loads, run this
+        $(document).ready(function () {
+            console.log("hewwo");
+            //set up validation on my numberForm
+            $("#RegistrationForm").validate({
+                wrapper: "div",
+                rules: {
+                    //requirements for each named element
+                    'firstNameInput': {
+                        required: true, //required
+                        minLength: 3 // cannot be negative
+                    },
+                    'lastNameInput': {
+                        required: true, //required
+                        minLength: 2 // cannot be negative
+                    },
+                    'emailInput': {
+                        required: true,
+                        email: true //must be at least 3 characters
+                    },
+                    'telephoneInput': {
+                        required: true,
+                        phone: true
+                    }
+                },
+                messages: {
+                    //configure messages when error condition tripped.
+                    'firstNameInput': {
+                        required: "First name is required",
+                        minLength: "Do you have a longer version of your name"
+                    },
+                    'lastNameInput': {
+                        required: "Last name is required",
+                        minLength: "No initials please"
+                    },
+                    'emailInput': {
+                        required: "Email is required",
+                        email: "try a different email"
+                    },
+                    'telephoneInput': {
+                        required: "Please provide a telephone numblo",
+                        phone: "Phone is not in a valid format"
+                    }
+                }
+            });
 
+        });
+    </script>
+}
+
+
+
+
+<p>"Quick, input your data, it should be safe here. Promise"</p>
+<form id="RegistrationForm" action="WelcomeUser" method="get">
+    <div class="row">
+        <div class="col-md-12">First Name:<input required id="firstName" type="text" name="firstNameInput"></div>
+    </div>
+        Last Name:<input required id="lastName" type="text" name="lastNameInput"><br />
+        E-mail Address:<input required id="emailAddress" type="email" name="emailInput"><br />
+        Phone Number:<input required id="telephoneNumber" type="tel" name="telephoneInput"><br />
+        <input id="submit" type="submit" value="Submit" />
+</form>
