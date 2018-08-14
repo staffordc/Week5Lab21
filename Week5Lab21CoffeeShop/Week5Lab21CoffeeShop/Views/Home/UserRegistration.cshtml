@@ -10,17 +10,17 @@
         $(document).ready(function () {
             console.log("hewwo");
             
-            $("RegistrationForm").validate({
+            $("#RegistrationForm").validate({
                 wrapper: 'div',
                 rules: {
                     //requirements for each named element
                     'firstNameInput': {
                         required: true,
-                        minLength: 3 
+                        minlength: 3 
                     },
                     'lastNameInput': {
                         required: true, 
-                        minLength: 2 
+                        minlength: 2 
                     },
                     'emailInput': {
                         required: true,
@@ -35,11 +35,11 @@
                     //configure messages when error condition tripped.
                     'firstNameInput': {
                         required: "First name is required",
-                        minLength: "Do you have a longer version of your name?"
+                        minlength: "Do you have a longer version of your name?"
                     },
                     'lastNameInput': {
                         required: "Last name is required",
-                        minLength: "No initials please"
+                        minlength: "No initials please"
                     },
                     'emailInput': {
                         required: "Email is required",
