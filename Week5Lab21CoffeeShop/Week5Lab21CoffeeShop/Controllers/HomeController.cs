@@ -26,5 +26,15 @@ namespace Week5Lab21CoffeeShop.Controllers
 
             return View();
         }
+        public ActionResult UserRegistration()
+        {
+            ViewBag.Message = "butz";
+            return View();
+        }
+        public ActionResult WelcomeUser()
+        {
+            ViewBag.Message = $"what up {firstNameInput}";
+            return View();
+        }
     }
 }

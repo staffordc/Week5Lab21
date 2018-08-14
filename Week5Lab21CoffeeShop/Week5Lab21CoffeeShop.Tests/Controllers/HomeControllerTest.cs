@@ -50,5 +50,19 @@ namespace Week5Lab21CoffeeShop.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+        [TestMethod]
+        public void UserRegistration()
+        {
+            HomeController controller = new HomeController();
+            ViewResult result = controller.UserRegistration() as ViewResult;
+            Assert.IsNotNull(result);
+        }
+        [TestMethod]
+        public void WelcomeUser()
+        {
+            HomeController controller = new HomeController();
+            ViewResult result = controller.WelcomeUser() as ViewResult;
+            Assert.IsNotNull(result);
+        }
     }
 }
