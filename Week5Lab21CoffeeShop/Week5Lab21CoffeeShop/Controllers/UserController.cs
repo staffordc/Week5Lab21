@@ -9,29 +9,33 @@ namespace Week5Lab21CoffeeShop.Controllers
 {
     public class UserController : Controller
     {
-        
+
 
         // GET: Users/Create
         public ActionResult CreateUser()
         {
             return View();
         }
-        public static User StoredUser;
+
         // POST: Users/Create
         [HttpPost]
         public ActionResult CreateUser(User user)
         {
-            try
+            HttpCookie UserInformationCookie;
+            if (Request.Cookies["UserInformationCookie"] == null)
             {
-                // TODO: Add insert logic here
-                StoredUser = user;
-
-                return RedirectToAction("WelcomeUser","Home");
+                UserInformationCookie = new HttpCookie("UserInformationCookie");
+                
             }
-            catch
+            else
             {
-                return View();
+                UserInformationCookie = Request.Cookies["UserInformationCookie"];
             }
+            UserInformationCookie.Value = user.FirstName;
+            Response.Cookies.Add(UserInformationCookie);
+    
+            return RedirectToAction("WelcomeUser", "Home");
         }
-    }
+    }  
 }
+

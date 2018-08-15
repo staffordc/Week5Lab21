@@ -38,8 +38,15 @@ namespace Week5Lab21CoffeeShop.Controllers
         
         public ActionResult WelcomeUser()
         {
-            
-            ViewBag.Message = $"what up {UserController.StoredUser.FirstName}";
+            string firstName ="";
+            HttpCookie userInformationCookie;
+            if (Request.Cookies["UserInformationCookie"] != null)
+            {
+                userInformationCookie = Request.Cookies["UserInformationCookie"];
+                firstName = userInformationCookie.Value;
+
+            }
+            ViewBag.Message = ($"what up {firstName}");
             return View();
         }
     }

@@ -24,6 +24,7 @@ namespace Week5Lab21CoffeeShop
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/sample.css",
                       "~/Content/site.css"));
         }
     }
