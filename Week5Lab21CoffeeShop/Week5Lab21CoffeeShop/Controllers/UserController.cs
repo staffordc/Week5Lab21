@@ -16,14 +16,15 @@ namespace Week5Lab21CoffeeShop.Controllers
         {
             return View();
         }
-
+        public static User StoredUser;
         // POST: Users/Create
         [HttpPost]
-        public ActionResult CreateUser(User collection)
+        public ActionResult CreateUser(User user)
         {
             try
             {
                 // TODO: Add insert logic here
+                StoredUser = user;
 
                 return RedirectToAction("WelcomeUser","Home");
             }
