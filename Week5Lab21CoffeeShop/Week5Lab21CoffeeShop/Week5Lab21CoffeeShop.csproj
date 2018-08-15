@@ -199,7 +199,6 @@
     <Content Include="Views\Home\UserRegistration.cshtml" />
     <Content Include="Views\Home\WelcomeUser.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
-    <Content Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
