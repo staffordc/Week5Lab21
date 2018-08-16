@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,13 +26,14 @@ namespace Week5Lab21CoffeeShop.Controllers
             if (Request.Cookies["UserInformationCookie"] == null)
             {
                 UserInformationCookie = new HttpCookie("UserInformationCookie");
-                
             }
             else
             {
                 UserInformationCookie = Request.Cookies["UserInformationCookie"];
             }
-            UserInformationCookie.Value = user.FirstName;
+            UserInformationCookie.Values.Set(nameof(user.FirstName), user.FirstName);
+            UserInformationCookie.Values.Set(nameof(user.FavoriteCoffee), user.FavoriteCoffee);
+
             Response.Cookies.Add(UserInformationCookie);
     
             return RedirectToAction("WelcomeUser", "Home");

@@ -39,15 +39,37 @@ namespace Week5Lab21CoffeeShop.Controllers
         public ActionResult WelcomeUser()
         {
             string firstName ="";
+            string favoriteCoffee = "";
             HttpCookie userInformationCookie;
             if (Request.Cookies["UserInformationCookie"] != null)
             {
                 userInformationCookie = Request.Cookies["UserInformationCookie"];
-                firstName = userInformationCookie.Value;
-
+                firstName = userInformationCookie.Values.Get("FirstName");
+                favoriteCoffee = userInformationCookie.Values.Get("FavoriteCoffee");
             }
             ViewBag.Message = ($"what up {firstName}");
+            ViewBag.FavoriteCoffee = favoriteCoffee;
             return View();
+        }
+           [HttpPost]
+        public ActionResult AddCoffee()
+        {
+            int addCoffeeCount = 0;
+            HttpCookie coffeeCountCookie;
+            if (Request.Cookies["coffeeCountCookie"] != null)
+            {
+                coffeeCountCookie = Request.Cookies["coffeeCountCookie"];
+                addCoffeeCount = int.Parse(coffeeCountCookie.Value);
+            }
+            else
+            {
+                coffeeCountCookie = new HttpCookie("coffeeCountCookie");
+            }
+            addCoffeeCount++;
+            ViewBag.Count = addCoffeeCount;
+            coffeeCountCookie.Value = addCoffeeCount.ToString();
+            Response.Cookies.Add(coffeeCountCookie);
+            return View(, WelcomeUser);
         }
     }
 }
