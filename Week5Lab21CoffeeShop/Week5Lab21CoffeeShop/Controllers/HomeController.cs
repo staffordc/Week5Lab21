@@ -31,14 +31,12 @@ namespace Week5Lab21CoffeeShop.Controllers
         {
             ViewBag.Message = "Welcome to the app";
 
-            
+
             return View();
         }
-
-        
         public ActionResult WelcomeUser()
         {
-            string firstName ="";
+            string firstName = "";
             string favoriteCoffee = "";
             HttpCookie userInformationCookie;
             if (Request.Cookies["UserInformationCookie"] != null)
@@ -51,7 +49,7 @@ namespace Week5Lab21CoffeeShop.Controllers
             ViewBag.FavoriteCoffee = favoriteCoffee;
             return View();
         }
-           [HttpPost]
+        [HttpPost]
         public ActionResult AddCoffee()
         {
             int addCoffeeCount = 0;
@@ -69,7 +67,24 @@ namespace Week5Lab21CoffeeShop.Controllers
             ViewBag.Count = addCoffeeCount;
             coffeeCountCookie.Value = addCoffeeCount.ToString();
             Response.Cookies.Add(coffeeCountCookie);
-            return View(, WelcomeUser);
+            return RedirectToAction("WelcomeUser");
+        }
+        public ActionResult Cart()
+        {
+            string addCoffeeCount;
+            HttpCookie coffeeCountCookie;
+            if (Request.Cookies["coffeeCountCookie"] != null)
+            {
+                addCoffeeCount = ViewBag.Count;
+                coffeeCountCookie = Request.Cookies["coffeeCountCookie"];
+                addCoffeeCount = coffeeCountCookie.Value;
+            }
+            else
+            {
+                RedirectToRoute(Contact());
+            }
+            return View();
+
         }
     }
 }

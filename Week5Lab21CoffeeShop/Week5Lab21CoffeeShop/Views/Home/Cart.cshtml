@@ -1,0 +1,14 @@
+﻿
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart</h2>
+
+@using (Html.BeginForm("BuyCoffee", "Home", FormMethod.Post))
+{
+    <button type="submit">You sure you want to buy @ViewBag.Count @ViewBag.FavoriteCoffee?</button>
+}
+

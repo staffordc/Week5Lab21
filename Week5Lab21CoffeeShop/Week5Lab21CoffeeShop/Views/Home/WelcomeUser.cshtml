@@ -3,7 +3,6 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-@using (Html.BeginForm("AddCoffee", "Home", FormMethod.Post))
-{
-    <button type="submit">add @ViewBag.FavoriteCoffee to Cart</button>
-}
+@*@using (Html.BeginForm("AddCoffee", "Home", FormMethod.Post))
+{*@
+    <button type="submit">@Html.ActionLink("Add Coffee", "AddCoffee", "Home") to Cart</button>
