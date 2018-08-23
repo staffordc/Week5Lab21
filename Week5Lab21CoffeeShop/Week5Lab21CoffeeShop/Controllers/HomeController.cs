@@ -12,6 +12,9 @@ namespace Week5Lab21CoffeeShop.Controllers
     {
         public ActionResult Index()
         {
+            var context = new CoffeeShopContextContainer();
+            ViewBag.Items = context.Items.ToList();
+
             return View();
         }
 
