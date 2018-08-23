@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Week5Lab21CoffeeShop.Models;
+using Week5Lab21CoffeeShop.DAL;
 
 namespace Week5Lab21CoffeeShop.Controllers
 {
@@ -36,17 +37,18 @@ namespace Week5Lab21CoffeeShop.Controllers
         }
         public ActionResult WelcomeUser()
         {
-            string firstName = "";
-            string favoriteCoffee = "";
-            HttpCookie userInformationCookie;
-            if (Request.Cookies["UserInformationCookie"] != null)
+            var context = new CoffeeShopContextContainer();
+
+            HttpCookie userIdCookie;
+            if (Request.Cookies["UserIdCookie"] != null)
             {
-                userInformationCookie = Request.Cookies["UserInformationCookie"];
-                firstName = userInformationCookie.Values.Get("FirstName");
-                favoriteCoffee = userInformationCookie.Values.Get("FavoriteCoffee");
+                userIdCookie = Request.Cookies["UserIdCookie"];
+                var Id = long.Parse(userIdCookie.Value);
+                var user = context.Users.First(u => u.Id == Id);
+                ViewBag.Message = ($"what up {user.FirstName}");
+                ViewBag.FavoriteCoffee = user.FavoriteCoffee;
             }
-            ViewBag.Message = ($"what up {firstName}");
-            ViewBag.FavoriteCoffee = favoriteCoffee;
+            
             return View();
         }
         [HttpPost]

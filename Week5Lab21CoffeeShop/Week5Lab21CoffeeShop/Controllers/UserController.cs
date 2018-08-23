@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Week5Lab21CoffeeShop.Models;
+using Week5Lab21CoffeeShop.DAL;
 
 namespace Week5Lab21CoffeeShop.Controllers
 {
@@ -20,21 +21,41 @@ namespace Week5Lab21CoffeeShop.Controllers
 
         // POST: Users/Create
         [HttpPost]
-        public ActionResult CreateUser(User user)
+
+        public ActionResult CreateUser(UserFormData userFormData)
         {
-            HttpCookie UserInformationCookie;
-            if (Request.Cookies["UserInformationCookie"] == null)
+            var context = new CoffeeShopContextContainer();
+
+            var user = new User
             {
-                UserInformationCookie = new HttpCookie("UserInformationCookie");
+                FirstName = userFormData.FirstName,
+                LastName = userFormData.LastName,
+                FavoriteCoffee = userFormData.FavoriteCoffee,
+                PhoneNumber = userFormData.PhoneNumber,
+                Email = userFormData.Email,
+                Password = userFormData.Password,
+                ConfirmPassword = userFormData.ConfirmPassword
+            };
+
+
+            context.Users.Add(user);
+
+            context.SaveChanges();
+
+            HttpCookie UserIdCookie;
+
+            if (Request.Cookies["UserIdCookie"] == null)
+            {
+                UserIdCookie = new HttpCookie("UserIdCookie");
             }
             else
             {
-                UserInformationCookie = Request.Cookies["UserInformationCookie"];
+                UserIdCookie = Request.Cookies["UserIdCookie"];
             }
-            UserInformationCookie.Values.Set(nameof(user.FirstName), user.FirstName);
-            UserInformationCookie.Values.Set(nameof(user.FavoriteCoffee), user.FavoriteCoffee);
+            UserIdCookie.Value = user.Id.ToString();
+            
 
-            Response.Cookies.Add(UserInformationCookie);
+            Response.Cookies.Add(UserIdCookie);
     
             return RedirectToAction("WelcomeUser", "Home");
         }

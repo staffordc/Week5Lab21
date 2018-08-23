@@ -7,20 +7,20 @@ using Week5Lab21CoffeeShop.Validators;
 
 namespace Week5Lab21CoffeeShop.Models
 {
-    public class User
+    public class UserFormData
     {
 
         [MinLength(2, ErrorMessage ="Do you have a longer version of that name?")]
         [Required]
         [MaxLength(50, ErrorMessage ="time to lawyer up against ur parents")]
-        [Display(Name = ("FirstName"))]
+        [Display(Name = ("First Name"))]
         [RegularExpression("\\D+", ErrorMessage = "No numblos plz")]
         public string FirstName { get; set; }
 
         [MinLength(2, ErrorMessage = "No initals plz")]
         [Required]
         [MaxLength(50, ErrorMessage ="time to lawyer up against ur parents")]
-        [Display(Name = ("LastName"))]
+        [Display(Name = ("Last Name"))]
         [RegularExpression("\\D+",ErrorMessage = "No numblos plz")]
         public string LastName { get; set; }
 

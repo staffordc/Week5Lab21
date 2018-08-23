@@ -7,8 +7,11 @@
 
 <h2>Cart</h2>
 
-@using (Html.BeginForm("BuyCoffee", "Home", FormMethod.Post))
-{
-    <button type="submit">You sure you want to buy @ViewBag.Count @ViewBag.FavoriteCoffee?</button>
-}
+<h4>You sure you want to buy</h4>
+
+    @using (Html.BeginForm("BuyCoffee", "Home", FormMethod.Post))
+
+    {
+        <button type="submit"> @ViewBag.Count @ViewBag.FavoriteCoffee?</button>
+    }
 
