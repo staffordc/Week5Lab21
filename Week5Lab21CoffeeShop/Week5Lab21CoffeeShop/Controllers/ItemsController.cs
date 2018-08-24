@@ -47,7 +47,7 @@ namespace Week5Lab21CoffeeShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,LocationFrom,GrindType,Shade,PricePerPound")] Item item)
+        public ActionResult Create([Bind(Include = "Id,ItemName,LocationFrom,GrindType,Shade,PricePerPound")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Week5Lab21CoffeeShop.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,LocationFrom,GrindType,Shade,PricePerPound")] Item item)
+        public ActionResult Edit([Bind(Include = "Id,ItemName,LocationFrom,GrindType,Shade,PricePerPound")] Item item)
         {
             if (ModelState.IsValid)
             {
