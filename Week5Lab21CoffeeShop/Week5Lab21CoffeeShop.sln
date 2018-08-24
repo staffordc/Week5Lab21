@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5Lab21CoffeeShop", "Wee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5Lab21CoffeeShop.Tests", "Week5Lab21CoffeeShop.Tests\Week5Lab21CoffeeShop.Tests.csproj", "{474C0B87-001F-49A3-BDEC-B8A6C99AB4EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5Lab21CoffeeShop.Domain", "Week5Lab21CoffeeShop.Domain\Week5Lab21CoffeeShop.Domain.csproj", "{6B86A1FA-1A0A-4AB9-AF0F-1519A476AE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week5Lab21CoffeeShop.Data", "Week5Lab21CoffeeShop.Data\Week5Lab21CoffeeShop.Data.csproj", "{69F38AB4-5BFC-44E3-AB03-E11CD1565700}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{474C0B87-001F-49A3-BDEC-B8A6C99AB4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{474C0B87-001F-49A3-BDEC-B8A6C99AB4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{474C0B87-001F-49A3-BDEC-B8A6C99AB4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B86A1FA-1A0A-4AB9-AF0F-1519A476AE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B86A1FA-1A0A-4AB9-AF0F-1519A476AE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B86A1FA-1A0A-4AB9-AF0F-1519A476AE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B86A1FA-1A0A-4AB9-AF0F-1519A476AE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F38AB4-5BFC-44E3-AB03-E11CD1565700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F38AB4-5BFC-44E3-AB03-E11CD1565700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F38AB4-5BFC-44E3-AB03-E11CD1565700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F38AB4-5BFC-44E3-AB03-E11CD1565700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

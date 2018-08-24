@@ -156,76 +156,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="DAL\CoffeeShopContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoffeeShopContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\CoffeeShopContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoffeeShopContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\CoffeeShopContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoffeeShopContext.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\CoffeeShopDbContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoffeeShopDbContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\CoffeeShopDbContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoffeeShopDbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\CoffeeShopDbContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoffeeShopDbContext.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Item.cs">
-      <DependentUpon>CoffeeShopDbContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\User.cs">
-      <DependentUpon>CoffeeShopDbContext.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\CustomeEmailAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="DAL\CoffeeShopContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CoffeeShopContext.Context.cs</LastGenOutput>
-      <DependentUpon>CoffeeShopContext.edmx</DependentUpon>
-    </Content>
-    <Content Include="DAL\CoffeeShopContext.edmx.sql" />
-    <Content Include="DAL\CoffeeShopContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CoffeeShopContext.cs</LastGenOutput>
-      <DependentUpon>CoffeeShopContext.edmx</DependentUpon>
-    </Content>
-    <Content Include="DAL\CoffeeShopDbContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CoffeeShopDbContext.edmx</DependentUpon>
-      <LastGenOutput>CoffeeShopDbContext.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DAL\CoffeeShopDbContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CoffeeShopDbContext.edmx</DependentUpon>
-      <LastGenOutput>CoffeeShopDbContext.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -234,20 +176,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="DAL\CoffeeShopContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CoffeeShopContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DAL\CoffeeShopContext.edmx.diagram">
-      <DependentUpon>CoffeeShopContext.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="DAL\CoffeeShopDbContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CoffeeShopDbContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DAL\CoffeeShopDbContext.edmx.diagram">
-      <DependentUpon>CoffeeShopDbContext.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -275,11 +203,21 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\WelcomeUser.cshtml" />
-    <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -296,6 +234,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Week5Lab21CoffeeShop.Data\Week5Lab21CoffeeShop.Data.csproj">
+      <Project>{69f38ab4-5bfc-44e3-ab03-e11cd1565700}</Project>
+      <Name>Week5Lab21CoffeeShop.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Week5Lab21CoffeeShop.Domain\Week5Lab21CoffeeShop.Domain.csproj">
+      <Project>{6b86a1fa-1a0a-4ab9-af0f-1519a476ae9d}</Project>
+      <Name>Week5Lab21CoffeeShop.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

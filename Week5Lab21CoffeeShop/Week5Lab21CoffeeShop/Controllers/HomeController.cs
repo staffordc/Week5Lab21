@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Week5Lab21CoffeeShop.Models;
-using Week5Lab21CoffeeShop.DAL;
+
 
 namespace Week5Lab21CoffeeShop.Controllers
 {
@@ -12,8 +11,8 @@ namespace Week5Lab21CoffeeShop.Controllers
     {
         public ActionResult Index()
         {
-            var context = new CoffeeShopContextContainer();
-            ViewBag.Items = context.Items.ToList();
+            //var context = new CoffeeShopContextContainer();
+            //ViewBag.Items = context.Items.ToList();
 
             return View();
         }
@@ -40,17 +39,17 @@ namespace Week5Lab21CoffeeShop.Controllers
         }
         public ActionResult WelcomeUser()
         {
-            var context = new CoffeeShopContextContainer();
+           // var context = new CoffeeShopContextContainer();
 
-            HttpCookie userIdCookie;
-            if (Request.Cookies["UserIdCookie"] != null)
-            {
-                userIdCookie = Request.Cookies["UserIdCookie"];
-                var Id = long.Parse(userIdCookie.Value);
-                var user = context.Users.First(u => u.Id == Id);
-                ViewBag.Message = ($"what up {user.FirstName}");
-                ViewBag.FavoriteCoffee = user.FavoriteCoffee;
-            }
+            //HttpCookie userIdCookie;
+            //if (Request.Cookies["UserIdCookie"] != null)
+            //{
+            //    userIdCookie = Request.Cookies["UserIdCookie"];
+            //    var Id = long.Parse(userIdCookie.Value);
+            //    var user = context.Users.First(u => u.Id == Id);
+            //    ViewBag.Message = ($"what up {user.FirstName}");
+            //    ViewBag.FavoriteCoffee = user.FavoriteCoffee;
+            //}
             
             return View();
         }

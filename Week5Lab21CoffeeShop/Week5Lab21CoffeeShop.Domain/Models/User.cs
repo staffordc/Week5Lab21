@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Week5Lab21CoffeeShop.Validators;
 
-namespace Week5Lab21CoffeeShop.Models
+namespace Week5Lab21CoffeeShop.Domain.Models
 {
-    public class UserFormData
+    public class User
     {
+        public int Id { get; set; }
 
         [MinLength(2, ErrorMessage ="Do you have a longer version of that name?")]
         [Required]
