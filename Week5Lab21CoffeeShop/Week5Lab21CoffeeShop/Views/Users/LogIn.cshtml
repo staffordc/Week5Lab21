@@ -1,0 +1,18 @@
+﻿@model Week5Lab21CoffeeShop.Domain.Models.User
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        User Email
+        <input type="text" name="email" />
+    </div>
+    <div>
+        User Password
+        <input type="Password" name="password" />
+    </div>
+    <div>
+        <input type="submit" name="booton">
+    </div>
+
+}

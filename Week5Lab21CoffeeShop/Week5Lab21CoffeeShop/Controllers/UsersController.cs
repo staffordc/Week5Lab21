@@ -124,5 +124,29 @@ namespace Week5Lab21CoffeeShop.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+        [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("LogIn")]
+        public ActionResult LogIn(string Email, string Password)
+        {
+            User user = db.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
+            if (user != null)
+            {
+                HttpCookie UserLogin = new HttpCookie("UserLogin");
+                if (Request.Cookies["UserLogin"] != null)
+                {
+                    UserLogin = Request.Cookies["UserLogin"];
+                }
+                UserLogin.Value = user.UserId.ToString();
+
+                Response.Cookies.Add(UserLogin);
+
+                return RedirectToAction("Index", "Cart");
+            }
+            return RedirectToAction("LogIn");
+        }
     }
 }
