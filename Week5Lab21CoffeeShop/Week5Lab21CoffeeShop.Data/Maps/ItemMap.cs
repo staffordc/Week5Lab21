@@ -14,8 +14,8 @@ namespace Week5Lab21CoffeeShop.Data.Maps
     {
         internal ItemMap()
         {
-            HasKey(x => x.Id);
-            Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            HasKey(x => x.ItemId);
+            Property(x => x.ItemId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
         }
             
 

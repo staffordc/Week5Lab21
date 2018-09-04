@@ -13,8 +13,17 @@ namespace Week5Lab21CoffeeShop.Data.Maps
     {
         internal UserMap()
         {
-            HasKey(x => x.Id);
-            Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            HasKey(x => x.UserId);
+            Property(x => x.UserId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            HasMany(x => x.Items)
+                .WithMany(i => i.Users)
+                .Map(ui =>
+                    {
+                        ui.MapLeftKey("UserId");
+                        ui.MapRightKey("ItemId");
+                        ui.ToTable("CartItem");
+
+                    });
         }
     }
 }

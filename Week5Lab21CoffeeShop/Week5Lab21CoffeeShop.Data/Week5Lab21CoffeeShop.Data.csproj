@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maps\CartItemMap.cs" />
     <Compile Include="Maps\ItemMap.cs" />
     <Compile Include="Maps\UserMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
