@@ -29,7 +29,8 @@
         </td>
         <td>
             @{var ItemId = item.ItemId;}
-            @ViewBag.ItemsCounts
+           
+            @ViewBag.ItemCounts.TryGetValue(ItemId, out int value) ? value : 0;
         </td>
         <td>
             @Html.ActionLink("Add", "Add", new { id = item.ItemId }) |

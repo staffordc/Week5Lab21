@@ -20,12 +20,13 @@ namespace Week5Lab21CoffeeShop.Controllers
         {
             var UserLogin = Request.Cookies["UserLogin"];
             var LoginValue = int.Parse(UserLogin.Value);
-            var user = db.Users.FirstOrDefault(u => u.UserId == LoginValue);
+            var user = db.Users.Include(u => u.Items).FirstOrDefault(u => u.UserId == LoginValue);
             ViewBag.User = user;
             //V Upset at last run because the set is Null?
-            ViewBag.Items = user.Items.ToList();
+            //ViewBag.Items = user.Items.ToList();
             //Set up Dictionary for Count of Items
             var ItemsCounts = user.Items.GroupBy(i => i.ItemId).ToDictionary(k => k.Key, v => v.Count());
+            ViewBag.ItemsCounts = ItemsCounts;
             return View(db.Items);
         }
         public ActionResult Add(int? id)
