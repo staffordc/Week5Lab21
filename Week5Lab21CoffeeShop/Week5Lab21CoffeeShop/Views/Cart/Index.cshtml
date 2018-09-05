@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Week5Lab21CoffeeShop.Domain.Models.Item>
+﻿@using System.Linq
+@model IEnumerable<Week5Lab21CoffeeShop.Domain.Models.Item>
 
 @{
     ViewBag.Title = "Index";
@@ -13,6 +14,10 @@
         <th>
             @Html.DisplayNameFor(model => model.ItemName)
         </th>
+        <th>
+            Count
+            </th>
+        
       
         <th></th>
     </tr>
@@ -21,6 +26,13 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @{var ItemId = item.ItemId;}
+            @ViewBag.ItemsCounts
+        </td>
+        <td>
+            @Html.ActionLink("Add", "Add", new { id = item.ItemId }) |
         </td>
        
     </tr>
