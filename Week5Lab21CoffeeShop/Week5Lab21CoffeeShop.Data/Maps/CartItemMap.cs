@@ -15,7 +15,8 @@ namespace Week5Lab21CoffeeShop.Data.Maps
         {
             HasKey(x => x.CartItemId);
             Property(x => x.CartItemId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            
+            HasRequired(x => x.User);
+            HasRequired(x => x.Item);
         }
     
     }

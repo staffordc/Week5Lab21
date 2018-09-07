@@ -1,5 +1,5 @@
 ﻿@using System.Linq
-@model IEnumerable<Week5Lab21CoffeeShop.Domain.Models.Item>
+@model IEnumerable<Week5Lab21CoffeeShop.Domain.Models.CartItem>
 
 @{
     ViewBag.Title = "Index";
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ItemName)
+            @Html.DisplayNameFor(model => model.Item.ItemName)
         </th>
         <th>
             Count
@@ -25,15 +25,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ItemName)
+            @Html.DisplayFor(modelItem => item.Item.ItemName)
         </td>
         <td>
-            @{var ItemId = item.ItemId;}
-           
-            @ViewBag.ItemCounts.TryGetValue(ItemId, out int value) ? value : 0;
+            @Html.DisplayFor(modelItem => item.Count)
         </td>
         <td>
             @Html.ActionLink("Add", "Add", new { id = item.ItemId }) |
+            @Html.ActionLink("Remove","Delete", new { id = item.ItemId})
         </td>
        
     </tr>

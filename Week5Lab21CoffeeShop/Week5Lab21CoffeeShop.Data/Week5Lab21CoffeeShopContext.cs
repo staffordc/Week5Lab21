@@ -17,11 +17,13 @@ namespace Week5Lab21CoffeeShop.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Item> Items { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new ItemMap());
+            modelBuilder.Configurations.Add(new CartItemMap());
             base.OnModelCreating(modelBuilder);
         }
     }
